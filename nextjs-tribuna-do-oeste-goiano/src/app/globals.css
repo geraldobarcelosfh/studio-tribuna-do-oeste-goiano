@@ -1,26 +1,27 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+  As variáveis de cores e fontes globais foram removidas
+  pois agora são gerenciadas pelo Tailwind CSS (tailwind.config.js)
+  e aplicadas no layout.tsx.
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  A cor de fundo (bg-app-bg), a fonte principal (font-sans)
+  e a cor do texto principal (text-text-main) são aplicadas
+  diretamente na tag <body> em layout.tsx.
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  As classes do Tailwind como `bg-primary`, `text-highlight`, `font-serif`
+  podem ser usadas em todo o projeto para aplicar a identidade visual.
+*/
+
+/* Estilos base do Tailwind (geralmente @tailwind base; @tailwind components; @tailwind utilities;)
+   são implicitamente incluídos pela importação "tailwindcss" acima ou pela configuração do PostCSS.
+   Se precisar adicionar estilos base personalizados, este é um bom lugar. */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /*
+    Pode-se manter ou adicionar estilos globais mínimos aqui, se necessário,
+    mas a maior parte da estilização da identidade visual virá das classes do Tailwind.
+    Por exemplo, garantir que o antialiasing da fonte seja aplicado globalmente,
+    o que já está no layout.tsx.
+  */
 }

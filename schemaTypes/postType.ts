@@ -48,6 +48,30 @@ export const postType = defineType({
       title: 'Conteúdo',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'excerpt',
+      title: 'Resumo (Excerpt)',
+      type: 'text',
+      rows: 3,
+      description: 'Um breve resumo do post, usado em listagens e previews.',
+      validation: (Rule) => Rule.max(200).warning('O resumo idealmente não deve passar de 200 caracteres.'),
+    }),
+    defineField({
+      name: 'status',
+      title: 'Status de Publicação',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Rascunho', value: 'draft'},
+          {title: 'Em Revisão', value: 'pending_review'},
+          {title: 'Publicado', value: 'published'},
+        ],
+        layout: 'radio', // ou 'dropdown'
+      },
+      initialValue: 'draft',
+      validation: (Rule) => Rule.required(),
+      description: 'Controla a visibilidade do post no site público. Apenas posts "Publicados" são exibidos.',
+    }),
   ],
   preview: {
     select: {
